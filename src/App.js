@@ -49,7 +49,7 @@ function App() {
       <NavBar booksText={booksText}></NavBar>
       <Routes>
         <Route path="/" element={<Books books={books} onAdd={addBook} />} />
-        <Route path="/savedBooks" element={<SavedBooks />} />
+        <Route path="/savedBooks" element={<SavedBooks books={books}/>} />
       </Routes>
     </BrowserRouter>
   );
