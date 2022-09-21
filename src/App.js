@@ -1,58 +1,28 @@
-import "./App.css";
-import "./components/NavBar";
-import NavBar from "./components/NavBar";
-import Books from "./components/Books";
-import SavedBooks from "./components/SavedBooks";
-import { useState } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import React, {Component} from 'react';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './components/Navbar.jsx';
+import Footer from './components/Footer.jsx';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/pages/Home.jsx';
+import Contact from './components/pages/Contact.jsx';
+import NotFound from './components/pages/NotFound.jsx';
 
-function App() {
-  //let booksText = 0;
-  const [booksText, setBooksText] = useState(0);
-  const books = [
-    {
-      id: 1,
-      title: "Chocolate",
-      description:
-        "Chocolate is a food made from cacao beans. It is used in many desserts like pudding, cakes and candy",
-      amount: 0,
-    },
-    {
-      id: 2,
-      title: "Lollypop",
-      description:
-        "Lollipops are available in a number of colors and flavors, particularly fruit flavors.",
-      amount: 0,
-    },
-    {
-      id: 3,
-      title: "Ice Cream",
-      description:
-        "Ice cream is a sweetened frozen food typically eaten as a snack or dessert.",
-      amount: 0,
-    },
-    {
-      id: 4,
-      title: "Banana",
-      description:
-        "Ice cream is a sweetened frozen food typically eaten as a snack or dessert.",
-      amount: 0,
-    },
-  ];
-  function addBook(title) {
-    console.log("dodato: " + title);
-    setBooksText(booksText + 1);
+class App extends Component {
+  render(){
+    return(
+      <div>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Home />}/>
+          <Route path="/kontakt" element={<Contact />}/>
+          <Route path="/onama" element={<NotFound />}/>
+          <Route path="/informacije" element={<NotFound />}/>
+        </Routes>
+        <Footer />
+      </div>
+    );
   }
-
-  return (
-    <BrowserRouter className="App">
-      <NavBar booksText={booksText}></NavBar>
-      <Routes>
-        <Route path="/" element={<Books books={books} onAdd={addBook} />} />
-        <Route path="/savedBooks" element={<SavedBooks books={books}/>} />
-      </Routes>
-    </BrowserRouter>
-  );
 }
 
 export default App;
