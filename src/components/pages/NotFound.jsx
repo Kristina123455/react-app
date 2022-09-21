@@ -10,14 +10,14 @@ function NotFound(){
                 <div className="row">
                     <div className="col-md-12">
                         <div className="error-template">
-                            <h1>Greška!</h1>
+                            <h1>Stranica trenutno nije aktivna</h1>
                             <h2>404 NOT FOUND</h2>
                             <div className="error-details">
-                                Kliknite na dugme ispod za vise detalja!
+                                Kliknite na dugme ispod za vise informacija
                             </div>
                             <div>
                                 <p>{txt}</p>
-                                <button onClick={() => setTxt(txt + 'POGREŠNA RUTA! OVA STRANICA NE POSTOJI.')}>DETALJI</button>
+                                <button onClick={() => setTxt(txt + 'Stranica je u obradi.')}>Informacije</button>
                             </div>
                             <br></br>
                             <div className="error-actions">
